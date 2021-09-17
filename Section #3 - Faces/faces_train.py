@@ -5,7 +5,7 @@ import cv2 as cv
 import numpy as np
 
 people = ['Ben Afflek', 'Elton John', 'Jerry Seinfield', 'Madonna', 'Mindy Kaling']
-DIR = r'..Media Files\Faces\train'
+DIR = r'../Resources/Faces/train'
 
 haar_cascade = cv.CascadeClassifier('haar_face.xml')
 
@@ -13,9 +13,8 @@ features = []
 labels = []
 
 def create_train():
-    for person in people:
+    for label, person in enumerate(people):
         path = os.path.join(DIR, person)
-        label = people.index(person)
 
         for img in os.listdir(path):
             img_path = os.path.join(path,img)
